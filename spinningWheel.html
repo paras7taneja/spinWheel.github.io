@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .demo {
+            width: 40rem;
+            /* height: 20rem; */
+            margin: auto;
+            text-align: center;
+            /* display: flex;
+            align-items: center; */
+            margin-top: 8rem;
+            position: relative;
+            /* transition:all 2s; */
+
+        }
+
+        .demo img {
+            width: 50%;
+            transform: rotateZ(0deg);
+
+        }
+
+        .spin-line {
+            width: 1rem;
+            height: 0.3rem;
+            /* color: black; */
+            background: white;
+        }
+
+        .spin-box {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            top: 7.8rem;
+            left: 19rem;
+            transform: rotate(270deg);
+        }
+
+        .fa-solid {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        #stop,#start {
+            display: block;
+            /* text-align: center; */
+            margin: auto;
+            margin-top: 1rem;
+            width: 6rem;
+            height: 3rem;
+            color: white;
+            background: black;
+            border-radius: 0.5rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.5s;
+        }
+
+        #stop:hover {
+
+            transform: scale(1.1);
+        }
+
+        #name1 {
+            background-color: #FCE319;
+        }
+
+        #name2 {
+            background-color: #F3682B;
+        }
+
+        #name3 {
+            background-color: #5A3D84;
+        }
+
+        #name4 {
+            background-color: #155091;
+        }
+
+        #name5 {
+            background-color: #018445;
+        }
+
+        #name6 {
+            background-color: #DA262E;
+        }
+
+
+        form {
+            margin: auto;
+            text-align: center;
+            /* margin-bottom: -1rem; */
+            margin-top: 2re;
+            margin-top: 5rem;
+            margin-bottom: -4rem;
+        }
+
+        input[type="text"] {
+            padding: 0.5rem;
+            color: white;
+            font-size: 1rem;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        /* .demo::after{
+            Math.floor(Math.random() * 7)
+        } */
+    </style>
+</head>
+
+<body>
+
+    <form>
+        <input type="text" id="name1" value="">
+        <input type="text" id="name2" value="">
+        <input type="text" id="name3" value="">
+        <input type="text" id="name4" value="">
+        <input type="text" id="name5" value="">
+        <input type="text" id="name6" value="">
+    </form>
+
+    <div class="demo">
+        <img id="spin-img" class="spin-img" src="spinwheel1.png">
+        <div class="spin-box">
+            <p class="spin-line"></p><i class="fa-solid fa-angle-right"></i>
+        </div>
+
+    </div>
+    <!-- <button id="stop">stop</button> -->
+    <button id="start">start</button>
+    <script>
+        let spinWheel = document.getElementById("spin-img");
+        let start = document.getElementById("start")
+        let arr = []
+
+        start.addEventListener("click", () => {
+            // let plus = 0;
+            let plus = Math.floor(Math.random() * (57-50)+50);
+            // let plus = RANDBETWEEN(0, 6);
+            let rotation = setInterval(() => {
+                plus++
+                spinWheel.style.transition = `all 1s linear`
+                spinWheel.style.transform = `rotateZ(${plus * 420}deg)`
+                console.log(plus);
+                clearInterval(rotation);
+
+                // spinWheel.style.transform = "rotateZ(60deg)"
+            }, 100);
+
+            // let stop = document.getElementById("stop");
+            // stop.addEventListener("click", () => {
+
+            //     // clearInterval(rotation)
+            //     // spinWheel.classList.add()
+            //     // spinWheel.style.transform = `rotateZ(${plus * 360}deg)`
+            // })
+        })
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
